@@ -1,0 +1,15 @@
+{
+"manifest_version":2,
+"name":"Child Saftey",
+"version":"1.0",
+"description":"Web_Blocker",
+"permissions":["webRequest","webRequestBlocking","<all_urls>"],
+"background":{
+"scripts":["Block.js"]
+},
+  "icons":{
+        "16":"icon16.png",
+        "48":"icon48.png",
+        "128":"icon128.png"
+    }
+}
