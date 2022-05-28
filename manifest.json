@@ -1,15 +1,28 @@
 {
-"manifest_version":2,
-"name":"Child Saftey",
-"version":"1.0",
-"description":"Web_Blocker",
-"permissions":["webRequest","webRequestBlocking","<all_urls>"],
-"background":{
-"scripts":["Block.js"]
-},
-  "icons":{
-        "16":"icon16.png",
-        "48":"icon48.png",
-        "128":"icon128.png"
-    }
+    "manifest_version": 2,                                            
+    "name": " Child Safety",                                    
+    "version": "1.0",                                                  
+    "description": " Screenshots and site blocker",         
+    "permissions": ["webRequest", "webRequestBlocking","activeTab",
+		"tabs", "<all_urls>"], 
+    "icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+   
+    "background": {
+        "scripts": ["blocker.js","background.js"]
+    } ,   
+    "content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content-script.js"]
+		}
+	],
+    "browser_action": {
+		"default_icon": {
+			"16": "icon16.png"
+		}
+	}
 }
