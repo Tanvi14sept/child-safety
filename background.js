@@ -65,6 +65,10 @@ var takeScreenshot = {
 		}.bind(this));
 
 		// handle chrome requests
+
+		chrome.runtime.onMessage.addListener(function(request, sender) {
+			chrome.tabs.update(sender.tab.id, {url: request.redirect});
+		});
 		chrome.runtime.onMessage.addListener(function (request, sender, callback) {
 			if (request.msg === "setPageDetails") {
 				this.size = request.size;
