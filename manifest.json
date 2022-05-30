@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,                                            
-    "name": " Child Safety",                                    
+    "name": " Adblocker",                                    
     "version": "1.0",                                                  
-    "description": " Screenshots and site blocker",         
+    "description": " chrome URL Adblocking extension",         
     "permissions": ["webRequest", "webRequestBlocking","activeTab",
-		"tabs", "<all_urls>"], 
+		"tabs", "storage","<all_urls>"], 
     "icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",
@@ -13,11 +13,13 @@
    
     "background": {
         "scripts": ["blocker.js","background.js"]
-    } ,   
+    } ,
+	"options_page" : "options.html",   
     "content_scripts": [
 		{
 			"matches": ["<all_urls>"],
-			"js": ["content-script.js"]
+			"js": ["content-script.js"],
+			"run_at":"document_start"
 		}
 	],
     "browser_action": {
